@@ -1,0 +1,54 @@
+{
+    "sqltools.connections": [
+        {
+            "trinoOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "driver": "Trino Driver",
+            "name": "Trino Local - tpch",
+            "server": "http://localhost:8080",
+            "user": "tsungyinglee",
+            "catalog": "tpch"
+        },
+        {
+            "trinoOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "driver": "Trino Driver",
+            "name": "Trino Local - tpcds",
+            "user": "tsungyinglee",
+            "catalog": "tpcds",
+            "server": "http://localhost:8080"
+        },
+        {
+            "trinoOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "previewLimit": 50,
+            "driver": "Trino Driver",
+            "name": "Trino Local - memory",
+            "server": "http://localhost:8080",
+            "catalog": "memory",
+            "user": "tsungyinglee"
+        },
+        {
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "Postgre Local",
+            "database": "tsungyinglee",
+            "username": "tsungyinglee",
+            "password": ""
+        }
+    ]
+}
