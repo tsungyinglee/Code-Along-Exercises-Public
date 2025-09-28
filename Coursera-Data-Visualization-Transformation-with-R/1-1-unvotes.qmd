@@ -43,7 +43,7 @@ We can easily change which countries are being plotted by changing which countri
 #| fig-width: 10
 #| fig-height: 6
 unvotes |>
-  filter(country %in% c("United Kingdom", "United States", "Turkey")) |>
+  filter(country %in% c("United Kingdom", "United States", "Japan", "Taiwan")) |>
   mutate(year = year(date)) |>
   group_by(country, year, issue) |>
   summarize(percent_yes = mean(vote == "yes")) |> 
