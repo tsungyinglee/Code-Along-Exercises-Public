@@ -1,0 +1,13 @@
+---
+title: "r4ds_m2_data_visualization"
+format: html
+---
+
+```{r}
+
+starwars
+```
+
+```{r}
+glimpse
+```
