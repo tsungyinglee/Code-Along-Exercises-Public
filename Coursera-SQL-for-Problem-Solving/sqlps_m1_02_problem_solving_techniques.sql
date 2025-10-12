@@ -65,6 +65,13 @@ from cte_orders
 order by order_id
 limit 10;
 
+-- We can extract parts of the date/time for more granular analysis, e.g., by year-month
+select to_char(created_timestamp::timestamp, 'YYYY-MM') as year_month,
+    count(*) as users_created_in_month
+from sqlps.users
+group by 1
+order by 1;
+
 -- Number formatting
 with cte_line_price as (
     select id as line_item_id,
@@ -86,3 +93,31 @@ select line_item_id,
 from cte_line_price
 order by line_item_id
 limit 10;
+
+----------------------------------------------------------
+-- String manipulation
+----------------------------------------------------------
+
+-- Check for empty or whitespace-only usernames
+select *
+from sqlps.users
+where username trim(username) = '';
+
+-- Convert empty or whitespace-only usernames to NULL
+-- Use SPLIT_PART to extract part of the email address
+-- Then use COALESCE to impute null username from email address
+with cte_cleaned_users as (
+    select id,
+        email_address,
+        username,
+        nullif(trim(username), '') as username_cleaned
+    from sqlps.users
+)
+select id as user_id,
+    email_address,
+    split_part(email_address, '@', 1) as email_name,
+    username_cleaned as username,
+    COALESCE(username_cleaned, split_part(email_address, '@', 1), '') as username_imputed
+from cte_cleaned_users
+order by user_id
+;

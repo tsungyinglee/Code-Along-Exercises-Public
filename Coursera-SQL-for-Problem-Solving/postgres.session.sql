@@ -68,10 +68,3 @@ select id,
     -- Calculate the date when the user account reaches its one year anniversary
     created_timestamp::timestamp + interval '1 year' as one_year_anniversary
 from sqlps.users;
-
--- We can extract parts of the date/time for more granular analysis, e.g., by year-month
-select to_char(created_timestamp::timestamp, 'YYYY-MM') as year_month,
-    count(*) as users_created_in_month
-from sqlps.users
-group by 1
-order by 1;
