@@ -68,3 +68,37 @@ select id,
     -- Calculate the date when the user account reaches its one year anniversary
     created_timestamp::timestamp + interval '1 year' as one_year_anniversary
 from sqlps.users;
+
+
+-----------------------------------------
+-- Pivot and rollup data
+-----------------------------------------
+
+-- Rollup data using GROUP BY single column
+select assembly_type,
+    count(*) as item_count,
+    avg(list_price) as avg_list_price
+from sqlps.items
+group by 1
+order by 1;
+
+-- Rollup data using GROUP BY multiple columns
+select category,
+    material,
+    count(*) as item_count
+from sqlps.items
+group by category,
+    material
+order by category,
+    material;
+
+-- "Bruce force" pivot in a wide table format using conditional aggregation
+select category,
+    count(CASE WHEN material='Carbon Fiber' THEN id ELSE NULL END) as carbon_fiber_count,
+    count(CASE WHEN material='Steel' THEN id ELSE NULL END) as steel_count,
+    count(CASE WHEN material='Composite' THEN id ELSE NULL END) as composite_count,
+    count(CASE WHEN material='Organic' THEN id ELSE NULL END) as organic_count,
+    count(CASE WHEN material NOT IN ('Carbon Fiber', 'Steel', 'Composite', 'Organic') THEN id ELSE NULL END) as other_material_count
+from sqlps.items
+group by 1
+order by 1;
