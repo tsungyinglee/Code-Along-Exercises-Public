@@ -101,7 +101,7 @@ limit 10;
 -- Check for empty or whitespace-only usernames
 select *
 from sqlps.users
-where username trim(username) = '';
+where username = '' or trim(username) = '';
 
 -- Convert empty or whitespace-only usernames to NULL
 -- Use SPLIT_PART to extract part of the email address
@@ -125,11 +125,11 @@ order by user_id
 ---------------------------------------------
 -- Using a backbone table for structure
 ---------------------------------------------
--- Create a backbone table of all dates in 2023
+-- Create a backbone table of all dates in 2024
 with recursive cte_all_dates as (
     select date '2024-01-01' as the_date
     union all
-    select (the_date + interval '1 day')::date as the_date
+    select (the_date + interval '1 day')::date
     from cte_all_dates
     where the_date < date '2024-12-31'
 )
@@ -142,7 +142,7 @@ order by the_date
 with recursive cte_all_dates as (
     select date '2024-01-01' as the_date
     union all
-    select (the_date + interval '1 day')::date as the_date
+    select (the_date + interval '1 day')::date
     from cte_all_dates
     where the_date < date '2024-12-31'
 )
@@ -166,4 +166,42 @@ left join sqlps.users u
     on u.locale = al.locale
 group by al.locale
 order by al.locale
+;
+
+------------------------------
+-- Loops with recursive CTEs
+------------------------------
+-- Print 'hello' 5 times using a recursive CTE
+-- This uses a phantom column n to count to 5
+-- and stops when n reaches 5
+-- The final select only outputs 'hello' 5 times
+with recursive cte_hello as (
+    select 1 as n
+    union all
+    select n + 1
+    from cte_hello
+    where n < 5
+)
+select 'hello' as greeting
+from cte_hello
+;
+
+
+----------------------------------------------------------
+-- Use join for combinatory comparison operators
+----------------------------------------------------------
+-- for each item, find all cheaper alternatives in the same category
+select i1.id as item_id,
+    i1.display_name as item_display_name,
+    i1.category,
+    i1.list_price as item_list_price,
+    i2.id as cheaper_item_id,
+    i2.display_name as cheaper_item_display_name,
+    i2.list_price as cheaper_item_list_price
+from sqlps.items i1
+join sqlps.items i2
+    on i1.category = i2.category
+    and i2.list_price < i1.list_price
+order by i1.id, i2.list_price
+limit 100
 ;
