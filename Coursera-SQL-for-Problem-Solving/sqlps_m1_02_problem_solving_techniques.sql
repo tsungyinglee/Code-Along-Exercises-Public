@@ -121,3 +121,49 @@ select id as user_id,
 from cte_cleaned_users
 order by user_id
 ;
+
+---------------------------------------------
+-- Using a backbone table for structure
+---------------------------------------------
+-- Create a backbone table of all dates in 2023
+with recursive cte_all_dates as (
+    select date '2024-01-01' as the_date
+    union all
+    select (the_date + interval '1 day')::date as the_date
+    from cte_all_dates
+    where the_date < date '2024-12-31'
+)
+select the_date
+from cte_all_dates
+order by the_date
+;
+
+-- Use the backbone table to find dates with no orders
+with recursive cte_all_dates as (
+    select date '2024-01-01' as the_date
+    union all
+    select (the_date + interval '1 day')::date as the_date
+    from cte_all_dates
+    where the_date < date '2024-12-31'
+)
+select ad.the_date,
+    count(o.id) as orders_count
+from cte_all_dates ad
+left join sqlps.orders o
+    on cast(o.created_timestamp as date) = ad.the_date
+group by ad.the_date
+order by ad.the_date
+;
+
+-- Use a backbone table of selected locales to calculate user counts by locale (including zero counts)
+with cte_all_locales as (
+    select unnest(array['en_US', 'fr_FR', 'de_DE', 'es_ES']) as locale
+)
+select al.locale,
+    count(u.id) as users_count
+from cte_all_locales al
+left join sqlps.users u
+    on u.locale = al.locale
+group by al.locale
+order by al.locale
+;
