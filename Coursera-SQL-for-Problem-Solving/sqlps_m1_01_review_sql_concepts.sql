@@ -1,4 +1,4 @@
--- Review SQL Queries
+-- Review of SQL Concepts
 
 -- Filter: Select all items in the 'Widget' category
 select *
