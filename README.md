@@ -7,61 +7,68 @@ This repository contains coding exercises and examples from various online cours
 ### 📚 Coursera Courses
 
 #### Data Visualization and Transformation with R
-- **M1-1-unvotes**: UN Votes analysis using Quarto
-- **M1-2-meet-rstudio**: Introduction to RStudio environment
-- **M1-3-R4DS-Ch28.1-5**: R for Data Science Chapter 28 exercises covering Quarto documents, output formats, visual/source editors, and code chunks
+- **M1-01-unvotes**: UN Votes analysis using Quarto (`.qmd` files with Quarto project configuration)
+- **M1-02-meet-rstudio**: Introduction to RStudio environment and R for Data Science textbook introduction
+- **M1-03-R4DS-Textbook-Ch28.1-5**: R for Data Science Chapter 28 exercises covering:
+  - Quarto document output formats (HTML, PDF, DOCX)
+  - Visual and source editor exercises
+  - Code chunk examples and best practices
+  - References and bibliography management
 - **M2-data-and-visualization**: Data visualization exercises including:
-  - Star Wars scatter plots
-  - Anscombe's Quartet analysis
-  - Palmer Penguins ggplot2 visualizations
+  - Star Wars scatter plots (`r4ds_m2_01_StarWars_ScatterPlot.r`)
+  - Anscombe's Quartet analysis (`r4ds_m2_02_Anscombe_Quartet_Summarize_Visualize.r`)
+  - Palmer Penguins ggplot2 visualizations (`r4ds_m2_03_PalmerPenguins_ggplot2.r`)
 
 #### SQL for Data Science
-- Database concepts and SQL fundamentals
-- Chinook database exercises
-- Index examples and optimization
-- Cross joins and self joins in PostgreSQL
+- Database concepts and SQL fundamentals (modules 1-4)
+- Chinook PostgreSQL database exercises
+- Index examples and optimization techniques
+- Advanced joins: cross joins and self joins in PostgreSQL
 
 #### SQL for Problem Solving
-- Advanced SQL problem-solving techniques
-- Data analysis workflows including:
-  - Denormalized line item tables
-  - Metric item views and reporting windows
-  - Funnel analysis
-  - Item recommender systems
-  - Data preparation for forecasting
-  - User activation metrics
+- Advanced SQL problem-solving techniques with comprehensive modules:
+  - **M1**: Review SQL concepts and problem-solving techniques
+  - **M3**: Denormalized line item tables, metric item views, and report metric windows
+  - **M3**: Funnel analysis examples
+  - **M4**: Item recommender systems, data preparation for forecasting, and user activation metrics
+- **Dataset**: DSV1069 Course Dataset (Excel format) for hands-on practice
 
 ### 📖 Textbooks
 
-#### R for Data Science (2nd Edition)
-- Introduction and foundational concepts
-- Data manipulation and visualization exercises
-
 #### Python for Data Analysis (3rd Edition)
-- Chapter 2 & 3 exercises and examples
-- Jupyter notebook implementations
+- **Chapter 2**: Python Language Basics, IPython, and Jupyter Notebooks (`PyData Ch02.ipynb/.html`)
+- **Chapter 3**: Built-in Data Structures, Functions, and Files (`PyData Ch03.ipynb/.html`)
 
 ### 🚀 Additional Projects
 
 #### 2025 ISPE GitHub Copilot Course
-- Data simulation exercises in R
+- **Data Simulation**: R exercises for simulating data (`01_simulate_data.R`)
 
 #### Data Science in VS Code Tutorial
-- Comprehensive tutorial notebook for data science workflows in VS Code
+- **Comprehensive Tutorial**: Complete workflow tutorial for data science in VS Code (`DS in VScode Tutorial.ipynb`)
 
 #### Titanic Analysis
-- Data analysis project using both Python and R
-- Quarto document implementation
+- **Multi-language Analysis**: Data analysis project implemented in Quarto combining Python and R (`TitanicAnalysis_with_Python_and_R.qmd`)
 
 ## Structure
 
-Each course/textbook has its own directory with organized subdirectories for different modules or chapters. Files include:
+The repository is organized into course-specific and textbook-specific directories:
 
-- `.R` files for R scripts and exercises
-- `.qmd` files for Quarto documents
-- `.ipynb` files for Jupyter notebooks
-- `.sql` files for database exercises
-- `.html` and `.pdf` files for rendered outputs
+### File Organization
+- **Course directories** follow module-based organization (M1, M2, etc.)
+- **Project files** include RStudio project files (`.Rproj`) for R-based work
+- **Quarto documents** (`.qmd`) for reproducible research and reports
+- **R scripts** (`.r`) for data analysis and visualization
+- **Jupyter notebooks** (`.ipynb`) for Python-based analysis
+- **SQL files** (`.sql`) for database exercises and queries
+- **Rendered outputs** (`.html`, `.pdf`) from Quarto and Jupyter notebooks
+- **Supporting files** include bibliographies (`references.bib`), datasets (`.xlsx`), and configuration files
+
+### Key Features
+- **Reproducible Research**: Extensive use of Quarto for combining code, text, and outputs
+- **Multi-language Support**: Projects spanning R, Python, and SQL
+- **Version Control**: Git integration with proper `.gitignore` configurations
+- **Development Environment**: VS Code and dev container setup for consistent development experience
 
 ## Purpose
 
@@ -73,11 +80,13 @@ This repository serves as:
 
 ## Tools and Technologies
 
-- **R** with RStudio and Quarto
-- **Python** with Jupyter notebooks
-- **SQL** (PostgreSQL)
-- **Data Visualization** with ggplot2 and other libraries
-- **VS Code** for integrated development
+- **R** with RStudio, ggplot2, and tidyverse ecosystem
+- **Python** with Jupyter notebooks and data analysis libraries
+- **SQL** (PostgreSQL) for database operations and analytics
+- **Quarto** for reproducible research and multi-format publishing
+- **Data Visualization** with ggplot2, matplotlib, and other visualization libraries
+- **VS Code** with dev containers for integrated development environment
+- **Git** for version control and project management
 
 ---
 
