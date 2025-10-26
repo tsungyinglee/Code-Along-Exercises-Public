@@ -1,0 +1,78 @@
+---
+title: "Titanic Data Analysis with Python and R"
+format:
+  html:
+    toc: true
+    code-fold: false
+    code-tools: true
+    code-link: true
+    theme: cosmo
+    highlight-style: github
+    self-contained: true
+    css: custom.css
+editor: visual
+---
+
+## Data Import
+
+```{python}
+#| label: load-titanic-data
+#| message: false
+#| code-fold: true
+#| code-summary: "Click to see the Python code for loading data"
+#| results: hide
+
+import requests
+
+url = "https://hbiostat.org/data/repo/titanic3.csv"
+response = requests.get(url)
+
+# Ensure the data directory exists and save the file
+import os
+os.makedirs("../data", exist_ok=True)
+
+with open("../data/titanic3.csv", "wb") as f:
+    f.write(response.content)
+```
+
+## Sample Characteristics Table
+
+```{r}
+#| label: sample-characteristics
+#| message: false
+#| warning: false
+#| code-fold: true
+#| code-summary: "Click to see the R code for creating sample characteristics table"
+
+# Load required libraries
+library(gtsummary)
+library(dplyr)
+library(tidyr)
+library(downlit)  # For code linking
+library(xml2)     # For code linking
+
+# Read in the data saved by Python
+titanic <- read.csv("../data/titanic3.csv")
+
+# Create manuscript-style sample characteristics table
+titanic %>%
+  # Convert relevant columns to factors
+  mutate(
+    survived = factor(survived, labels = c("No", "Yes")),
+    sex = factor(sex),
+    pclass = factor(pclass, labels = c("1st Class", "2nd Class", "3rd Class"))
+  ) %>%
+  # Create the table with gtsummary
+  tbl_summary(
+    include = c(survived, sex, age, pclass, fare, sibsp, parch),
+    missing = "ifany" # Display missing data rows if any
+  ) %>%
+  modify_header(
+    list(
+      all_categorical() ~ "{label}",
+      all_continuous() ~ "{label}"
+    )
+  ) %>%
+  bold_labels() %>% 
+  modify_caption("**Table 1. Sample Characteristics by Survival Status**")
+```
