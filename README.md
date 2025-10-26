@@ -1,84 +1,84 @@
-# GitHub Codespaces Template
+# Code-Along Exercises
 
-This repository serves as a template for quickly getting started with R, RStudio and Quarto in GitHub Codespaces. It provides a base configuration that you can use to create your own development environment in the cloud.
+This repository contains coding exercises and examples from various online courses and textbooks that I've worked through for learning and practice.
 
-This template is inspired by David Smith's [RStudio Codespaces Template](https://github.com/revodavid/devcontainers-rstudio). Link to his presentation videos: [YouTube](https://www.youtube.com/watch?v=2uXLikk30Ew) | [RStudio](https://www.rstudio.com/conference/2022/talks/zero-setup-r-workshops-github/)
+## Contents
 
-## What is GitHub Codespaces?
+### 📚 Coursera Courses
 
-GitHub Codespaces is a cloud-based development environment that lets you code from anywhere using a web browser or VS Code. It provides:
-- A fully configured development environment in seconds
-- Cloud-hosted development environments
-- Access to your workspace from any device
-- Customizable container configurations
-- Seamless GitHub integration
+#### Data Visualization and Transformation with R
+- **M1-1-unvotes**: UN Votes analysis using Quarto
+- **M1-2-meet-rstudio**: Introduction to RStudio environment
+- **M1-3-R4DS-Ch28.1-5**: R for Data Science Chapter 28 exercises covering Quarto documents, output formats, visual/source editors, and code chunks
+- **M2-data-and-visualization**: Data visualization exercises including:
+  - Star Wars scatter plots
+  - Anscombe's Quartet analysis
+  - Palmer Penguins ggplot2 visualizations
 
-## Getting Started
+#### SQL for Data Science
+- Database concepts and SQL fundamentals
+- Chinook database exercises
+- Index examples and optimization
+- Cross joins and self joins in PostgreSQL
 
-1. Click the "Use this template" button at the top of this repository
-2. Choose a name for your new repository
-3. Select whether you want the repository to be public or private
-4. Click "Create repository from template"
-5. Once created, click the "Code" button and select "Open with Codespaces"
-6. Click "New codespace" to launch your development environment
+#### SQL for Problem Solving
+- Advanced SQL problem-solving techniques
+- Data analysis workflows including:
+  - Denormalized line item tables
+  - Metric item views and reporting windows
+  - Funnel analysis
+  - Item recommender systems
+  - Data preparation for forecasting
+  - User activation metrics
 
-## Customization
+### 📖 Textbooks
 
-You can customize your Codespace by:
-- Modifying the `.devcontainer` folder
-- Adding development dependencies
-- Configuring VS Code settings
-- Installing additional extensions
+#### R for Data Science (2nd Edition)
+- Introduction and foundational concepts
+- Data manipulation and visualization exercises
 
-### Persisting Changes
+#### Python for Data Analysis (3rd Edition)
+- Chapter 2 & 3 exercises and examples
+- Jupyter notebook implementations
 
-To make your customizations available in future Codespaces:
+### 🚀 Additional Projects
 
-1. Keybindings: Update `.devcontainer/keybindings.json`
-2. VS Code settings: Modify the settings in `.devcontainer/devcontainer.json`
-3. R packages: Add them to the Dockerfile
-4. VS Code extensions: Add them to the extensions list in `devcontainer.json`
+#### 2025 ISPE GitHub Copilot Course
+- Data simulation exercises in R
 
-Remember to commit and push your changes to the repository to make them available in future Codespaces.
+#### Data Science in VS Code Tutorial
+- Comprehensive tutorial notebook for data science workflows in VS Code
 
-## Installed Components
+#### Titanic Analysis
+- Data analysis project using both Python and R
+- Quarto document implementation
 
-### Core Environment
-- R 4.4 with tidyverse
-- RStudio Server
-- Quarto CLI
-- JupyterLab with IRkernel
-- Python support
+## Structure
 
-### R Packages
-- tidyverse (core tidyverse packages)
-- here
-- tidymodels
-- markdown
-- gtsummary
-- ggsurvfit
-- survival
-- gt
-- quarto
-- rmarkdown
-- languageserver
-- WeightIt
-- MatchIt
-- MatchThem
-- cobalt
-- smdi
-- encore.analytics
+Each course/textbook has its own directory with organized subdirectories for different modules or chapters. Files include:
 
-### VS Code Extensions
-- Jupyter
-- Jupyter Renderers
-- Python
-- Pylance
-- CodeTour
-- GitHub Copilot
-- Quarto
+- `.R` files for R scripts and exercises
+- `.qmd` files for Quarto documents
+- `.ipynb` files for Jupyter notebooks
+- `.sql` files for database exercises
+- `.html` and `.pdf` files for rendered outputs
 
-### Exposed Ports
-- RStudio: 8787
-- JupyterLab: 8888
+## Purpose
 
+This repository serves as:
+- A learning portfolio documenting my progress through various data science courses
+- A reference collection of code examples and best practices
+- Practice exercises for R, Python, SQL, and data visualization
+- Examples of reproducible research using Quarto and Jupyter notebooks
+
+## Tools and Technologies
+
+- **R** with RStudio and Quarto
+- **Python** with Jupyter notebooks
+- **SQL** (PostgreSQL)
+- **Data Visualization** with ggplot2 and other libraries
+- **VS Code** for integrated development
+
+---
+
+*This repository is continuously updated as I work through new courses and textbooks.*
