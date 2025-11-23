@@ -1,0 +1,67 @@
+---
+title: "R4DS-28.3.1 Quarto visual editor exercises"
+format:
+  html:
+    self-contained: true
+bibliography: references.bib
+---
+
+## Text formatting
+
+*italic* **bold** [underline]{.underline} ~~strikeout~~ SMALL CAPS code superscript^2^ and subscript~2~
+
+## Headings
+
+# 1st Level Header
+
+## 2nd Level Header
+
+### 3rd Level Header
+
+## Lists
+
+-   ﻿﻿Bulleted list item 1
+-   ﻿﻿Item 2
+    -   ﻿﻿Item 2a
+
+    -   ﻿﻿Item 2b
+
+1.  ﻿﻿﻿Numbered list item 1
+2.  ﻿﻿﻿Item 2. The numbers are incremented automatically in the output.
+
+## Links and images[^1]
+
+[^1]: testing footnotes
+
+<https://r4ds.hadley.nz/quarto.html#fig-visual-editor>
+
+[Linked phrases (Figure 28.5 in the R4DS etextbook)](https://r4ds.hadley.nz/quarto.html#fig-visual-editor)
+
+![](images/clipboard-186460703.png){width="268"}
+
+| First Header | Second Header |
+|--------------|---------------|
+| Content Cell | Content Cell  |
+| Content Cell | Content Cell  |
+
+```{r}
+2+2
+```
+
+```{python}
+3*2
+```
+
+term 1
+
+:   def 1
+
+term 2
+
+:   def 2
+
+------------------------------------------------------------------------
+
+> PDC is calculated as ...
+
+citing reference [@wickham2019]

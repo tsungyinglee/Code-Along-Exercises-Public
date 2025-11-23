@@ -1,0 +1,58 @@
+---
+title: "Diamond sizes"
+date: 2022-09-12
+format:
+  html:
+    self-contained: true
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+
+smaller <- diamonds |> 
+  filter(carat <= 2.5)
+```
+
+We have data about `r nrow(diamonds)` diamonds. Only `r nrow(diamonds) - nrow(smaller)` are larger than 2.5 carats. The distribution of the remainder is shown below:
+
+```{r}
+#| label: plot-smaller-diamonds
+#| echo: false
+
+smaller |> 
+  ggplot(aes(x = carat)) + 
+  geom_freqpoly(binwidth = 0.01)
+```
+
+## Describe the most striking features of frequency polygon
+
+Looks like its connecting each bin
+
+# Exercise #4
+
+> Create a document in a Google doc or MS Word (or locate a document you have created previously) with some content in it such as headings, hyperlinks, formatted text, etc. Copy the contents of this document and paste it into a Quarto document in the visual editor. Then, switch over to the source editor and inspect the source code.
+
+**Abstract**
+
+**Title of dissertation:** Progression, Prognostic Factors, and Economic Costs of Loss of Independence in Parkinson Disease
+
+Tsung-Ying Lee, Doctor of Philosophy, 2024
+
+**Dissertation directed by:** Eberechukwu Onukwugha, PhD
+
+Professor
+
+Executive Director of Pharmaceutical Research Computing
+
+Department of Practice, Sciences, and Health Outcomes Research
+
+**Introduction:** Parkinson disease (PD) is a neurodegenerative disorder causing disability and loss of independence (LOI), impacting patients and families. The longitudinal patterns of LOI in PD, prognostic factors predicting LOI in different types of activities of daily living (ADLs), and costs associated with functional dependency (FD) in PD remain unclear.
+
+**Methods:** We used 2003-2020 data from a prospective PD cohort at a tertiary neurologic center. Disability with LOI was assessed using the modified Older Americans Resource and Services Daily Function Questionnaire at baseline and follow-up. Patterns of LOI were summarized using EventFlow data visualization software. Cox proportional hazards models identified prognostic factors for LOI on different types of ADLs. Costs borne by patients with PD (PWP) and their families were analyzed using 2018-2019 Financial and Social Impact of Parkinson’s Disease Survey data. We estimated the incremental costs comparing families of PWP with and without FD using generalized linear models.
+
+**Results:** Among 270 early-stage PD patients, 133 (45%) developed LOI on one or more ADL, where 57 regained independence at least once. Housework was the most frequent first ADL requiring help (mean time 4.6 years post-first visit). Longitudinal patterns of loss includedtransient and persistent loss. Strongest associations were dyskinesia (adjusted hazard ratios \[aHR\], 1.82; 95% CI, 1.12-2.96) for LOI on any ADL; falls (aHR, 1.72; 95% CI, 1.16-2.55) for basic ADLs (BADLs); gait impairment (aHR, 2.04; 95% CI, 1.43-2.91) and dyskinesia (aHR, 2.09; 95% CI, 1.29-3.37) for instrumental ADLs (IADLs); and dyskinesia (aHR, 1.68; 95% CI, 1.05-2.68) for walking. Compared to families of PWP without FD (n=882), families of PWP with FD (n=476) faced higher direct non-medical costs (adjusted average marginal effect \[aAME\], \$3,438; 95% CI, \$1,719-\$5,157) and indirect costs (aAME, \$11,479; 95% CI, \$1,545-\$21,413).
+
+**Conclusion:** This study provides novel information about LOI patterns in PD and the fluctuations in patients' functioning in daily tasks. We identified factors (e.g., dyskinesia and gait impairment) with varying impacts on BADLs and IADLs. The study quantifies the financial strain on families of PWP with FD, underscoring the need for interventions to delay or prevent LOI in PD.
